@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+# Owner.create(nickname: "Garfield")
+# Owner.create(nickname: "Bob")
+
+Car.create(brand: "Ford", model: "Fiesta", year: 2000, fuel: "gas", owner_id: 1)
+Car.create(brand: "Opel", model: "Astra", year: 2010, fuel: "petrol", owner_id: 2)

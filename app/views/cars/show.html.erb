@@ -1,0 +1,20 @@
+<h1>Hello</h1>
+<p><%= @car.model %></p>
+<p><%= @car.year %></p>
+<p><%= @car.fuel %></p>
+
+
+<h2>Add a new review</h2>
+<%= simple_form_for [@car, @review] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating %>
+  <%= f.submit %>
+<% end %>
+<%= link_to "Go back to all cars", cars_path %>
+
+<h2>All reviews</h2>
+<ul>
+<% @car.reviews.each do |review| %>
+  <li><%= review.comment %> - <%= review.rating %> stars </li>
+<% end %>
+</ul>

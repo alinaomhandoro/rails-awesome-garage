@@ -6,15 +6,26 @@
 
 <h2>Add a new review</h2>
 <%= simple_form_for [@car, @review] do |f| %>
-  <%= f.input :comment %>
-  <%= f.input :rating %>
-  <%= f.submit %>
+  <%= f.input :comment, lebel: false, placeholder: "Comment here..." %>
+  <%= f.input :rating, collection: 0..5, lebel: false %>
+  <%= f.submit "Add review" %>
 <% end %>
 <%= link_to "Go back to all cars", cars_path %>
 
 <h2>All reviews</h2>
 <ul>
 <% @car.reviews.each do |review| %>
-  <li><%= review.comment %> - <%= review.rating %> stars </li>
+  <li><%= review.comment %> - <%= "🌟" * review.rating %> </li>
 <% end %>
 </ul>
+
+<% if @car.favourites.empty? %>
+
+
+<%= simple_form_for [@car, @favourite] do |f| %>
+<%= f.submit "Save to my Garage" %>
+<% end %>
+
+<% else %>
+  <p>This car is in my garage </p>
+<% end %>

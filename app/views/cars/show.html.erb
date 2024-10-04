@@ -1,8 +1,10 @@
-<h1>Hello</h1>
+<div class="container">
+
 <p><%= @car.model %></p>
 <p><%= @car.year %></p>
 <p><%= @car.fuel %></p>
 
+<div class="form-container">
 
 <h2>Add a new review</h2>
 <%= simple_form_for [@car, @review] do |f| %>
@@ -10,6 +12,8 @@
   <%= f.input :rating, collection: 0..5, lebel: false %>
   <%= f.submit "Add review" %>
 <% end %>
+
+</div>
 <%= link_to "Go back to all cars", cars_path %>
 
 <h2>All reviews</h2>
@@ -29,3 +33,5 @@
 <% else %>
   <p>This car is in my garage </p>
 <% end %>
+
+</div>
